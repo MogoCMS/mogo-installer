@@ -47,6 +47,15 @@ func main() {
 		// Check 'deps' flag
 		if c.String("deps") == "true" {
 			println("Installing dependencies")
+			if c.String("os") == "osx" {
+				println("Installing on OSX (using brew)")
+			}
+			if c.String("os") == "deb" {
+				println("Installing on debian (using apt-get)")
+			}
+			if c.String("os") == "rehl" {
+				println("Installing on REHL/CentOS (using yum)")
+			}
 		}
 		if c.String("deps") == " " {
 			println("Skipping dependency installation")
