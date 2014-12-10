@@ -1,5 +1,7 @@
 # Mogo Installer
 
+__This is currently a work in progress and unusable in its current state__
+
 Install MogoCMS and dependencies
 
 This will do the following;
