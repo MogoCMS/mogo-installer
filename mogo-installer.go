@@ -51,13 +51,30 @@ func main() {
 			println("Installing dependencies")
 			if c.String("os") == "osx" {
 				println("Installing on OSX (using brew)")
-				runcmd("brew help")
+				runcmd("brew install mongodb")
+				runcmd("brew tap Homebrew/homebrew-php")
+				runcmd("brew install php55")
+				println("installed all dependencies for MogoCMS")
 			}
 			if c.String("os") == "deb" {
 				println("Installing on debian (using apt-get)")
+				runcmd("sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10")
+				runcmd("echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list")
+				runcmd()
+				runcmd("sudo apt-get update")
+				runcmd("sudo apt-get install -y mongodb-org")
+				runcmd("sudo apt-get install php5 php-pear")
+				println("Installed all depenencies for mogoCMS")
 			}
 			if c.String("os") == "rehl" {
 				println("Installing on REHL/CentOS (using yum)")
+				runcmd("echo \"[mongodb]\" >> /etc/yum.repos.d/mongodb.repo")
+				runcmd("echo \"name=MongoDB Repository\" >> /etc/yum.repos.d/mongodb.repo")
+				runcmd("echo \"baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/\" >> /etc/yum.repos.d/mongodb.repo")
+				runcmd("echo \"gpgcheck=0\" >> /etc/yum.repos.d/mongodb.repo")
+				runcmd("echo \"enabled=1\" >> /etc/yum.repos.d/mongodb.repo")
+				runcmd("sudo yum install -y mongodb-org")
+				runcmd("yum install php55w php55w-opcache")
 			}
 		}
 		if c.String("deps") == " " {
