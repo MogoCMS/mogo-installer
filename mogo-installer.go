@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"github.com/codegangsta/cli"
+	"github.com/mogocms/mogo-installer/clone"
 	"os"
 )
 
@@ -45,7 +47,6 @@ func main() {
 		// Check 'HEAD' flag
 		if c.String("HEAD") == "true" {
 			println("Installing MogoCMS from HEAD")
-
 		}
 		if c.String("HEAD") == " " {
 			println("Installing MogoCMS latest stable")
