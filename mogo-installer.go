@@ -22,12 +22,17 @@ func main() {
 			Value: " ",
 			Usage: "Install from HEAD (Master Branch) (Unstable)",
 		},
+		cli.StringFlag{
+			Name:  "conf",
+			Value: " ",
+			Usage: "write the config file",
+		},
 	}
 
 	app.action = func(c *cli.Context) {
 		// Check 'deps' flag
 		if c.String("deps") == "true" {
-			println("Installing Dependencies")
+			println("Installing dependencies")
 		}
 		if c.String("deps") == " " {
 			println("Skipping dependency installation")
@@ -38,6 +43,13 @@ func main() {
 		}
 		if c.String("HEAD") == " " {
 			println("Installing MogoCMS latest stable")
+		}
+		// Check 'conf' flag
+		if c.String("conf") == "true" {
+			println("Writing config file")
+		}
+		if c.String("conf") == " " {
+			println(" ")
 		}
 	}
 
