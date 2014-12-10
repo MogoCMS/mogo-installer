@@ -49,11 +49,11 @@ func main() {
 		// Check 'HEAD' flag
 		if c.String("HEAD") == "true" {
 			println("Installing MogoCMS from HEAD")
-			cl("https://github.com/mogocms/mogo", "master")
+			cl("master", "https://github.com/mogocms/mogo.git")
 		}
 		if c.String("HEAD") == " " {
 			println("Installing MogoCMS latest stable")
-			cl("https://github.com/mogocms/mogo", "stable")
+			cl("stable", "https://github.com/mogocms/mogo.git")
 		}
 		// Check 'conf' flag
 		if c.String("conf") == "true" {

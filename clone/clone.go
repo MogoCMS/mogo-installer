@@ -1,11 +1,18 @@
 package clone
 
 import (
-	"fmt"
-	"github.com/codeskyblue/go-sh"
+	"os/exec"
 )
 
-func Clone(repo string, branch string) {
-	clonecmd := fmt.Sprintf("git clone -b %s %s", branch, repo)
-	sh.Command(clonecmd).Run()
+func Clone(Branch string, Repo string) {
+
+	cmd := exec.Command("git", "clone", "-b", Branch, Repo)
+	out, err := cmd.Output()
+
+	if err != nil {
+		println(err.Error())
+		return
+	}
+
+	println(string(out))
 }
