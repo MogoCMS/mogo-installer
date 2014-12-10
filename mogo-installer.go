@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/codegangsta/cli"
 	"github.com/mogocms/mogo-installer/clone"
+	"github.com/mogocms/mogo-installer/cmd"
 	"os"
 )
 
@@ -13,6 +14,7 @@ func main() {
 
 	// Git Clone
 	cl := clone.Clone
+	runcmd := cmd.Cmd
 
 	// Setup Flags and Arguments
 	app.Flags = []cli.Flag{
@@ -49,6 +51,7 @@ func main() {
 			println("Installing dependencies")
 			if c.String("os") == "osx" {
 				println("Installing on OSX (using brew)")
+				runcmd("brew help")
 			}
 			if c.String("os") == "deb" {
 				println("Installing on debian (using apt-get)")
