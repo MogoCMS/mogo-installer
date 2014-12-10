@@ -34,11 +34,6 @@ func main() {
 			Usage: "Install from HEAD (Master Branch) (Unstable)",
 		},
 		cli.StringFlag{
-			Name:  "conf",
-			Value: " ",
-			Usage: "write the config file",
-		},
-		cli.StringFlag{
 			Name:  "vcs",
 			Value: " ",
 			Usage: "Check MogoCMS into git",
@@ -60,7 +55,6 @@ func main() {
 				println("Installing on debian (using apt-get)")
 				runcmd("sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10")
 				runcmd("echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list")
-				runcmd()
 				runcmd("sudo apt-get update")
 				runcmd("sudo apt-get install -y mongodb-org")
 				runcmd("sudo apt-get install php5 php-pear")
@@ -89,13 +83,7 @@ func main() {
 			println("Installing MogoCMS latest stable")
 			cl("stable", "https://github.com/mogocms/mogo.git")
 		}
-		// Check 'conf' flag
-		if c.String("conf") == "true" {
-			println("Writing config file")
-		}
-		if c.String("conf") == " " {
-			println("Skipping configuration file, please write it manually")
-		}
+		runcmd("cp ./mogo/install.sample.php ./mogo/install.php")
 		// Check 'vcs' flag
 		if c.String("vcs") == "true" {
 			println("Checking your new MogoCMS installation into git")
