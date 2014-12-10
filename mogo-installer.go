@@ -45,6 +45,7 @@ func main() {
 		// Check 'HEAD' flag
 		if c.String("HEAD") == "true" {
 			println("Installing MogoCMS from HEAD")
+
 		}
 		if c.String("HEAD") == " " {
 			println("Installing MogoCMS latest stable")
