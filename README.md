@@ -1,15 +1,17 @@
 # Mogo Installer
 
-__This is currently a work in progress and unusable in its current state__
-
 Install MogoCMS and dependencies
 
 This will do the following;
 
 - Install Mongodb, and PHP (if needed) `--deps true`
+  - with brew for osx `--deps true --osx`
+  - with yum for RHEL/CentOS `--deps true --rhel`
+  - with apt-get for debian `--deps true --deb`
 - Get the latest stable version of MogoCMS `--HEAD true`
-- Write the config file `--conf true`
 - Check into VCS `--vcs true`
 
 ## Usage
-__(Coming Soon)__
+
+1. Download the latest installer (link to come)
+2. run it from the terminal with the appropriate flags read above

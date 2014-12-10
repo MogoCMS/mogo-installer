@@ -60,8 +60,8 @@ func main() {
 				runcmd("sudo apt-get install php5 php-pear")
 				println("Installed all depenencies for mogoCMS")
 			}
-			if c.String("os") == "rehl" {
-				println("Installing on REHL/CentOS (using yum)")
+			if c.String("os") == "rhel" {
+				println("Installing on RHEL/CentOS (using yum)")
 				runcmd("echo \"[mongodb]\" >> /etc/yum.repos.d/mongodb.repo")
 				runcmd("echo \"name=MongoDB Repository\" >> /etc/yum.repos.d/mongodb.repo")
 				runcmd("echo \"baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/\" >> /etc/yum.repos.d/mongodb.repo")
