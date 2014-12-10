@@ -11,9 +11,7 @@ func main() {
 	app.Name = "Mogo Installer"
 	app.Usage = "Install and Setup MogoCMS and its Dependencies"
 
-	// Git Stuff
-	headRepo := ("github.com/mogocms/mogo/tree/master")
-	stableRepo := ("github.com/mogocms/mogo/tree/stable")
+	// Git Clone
 	cl := clone.Clone
 
 	// Setup Flags and Arguments
@@ -51,11 +49,11 @@ func main() {
 		// Check 'HEAD' flag
 		if c.String("HEAD") == "true" {
 			println("Installing MogoCMS from HEAD")
-			cl(headRepo)
+			cl("https://github.com/mogocms/mogo", "master")
 		}
 		if c.String("HEAD") == " " {
 			println("Installing MogoCMS latest stable")
-			cl(stableRepo)
+			cl("https://github.com/mogocms/mogo", "stable")
 		}
 		// Check 'conf' flag
 		if c.String("conf") == "true" {
