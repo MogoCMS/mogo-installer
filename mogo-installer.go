@@ -27,6 +27,11 @@ func main() {
 			Value: " ",
 			Usage: "write the config file",
 		},
+		cli.StringFlag{
+			Name:  "vcs",
+			Value: " ",
+			Usage: "Check MogoCMS into git",
+		},
 	}
 
 	app.action = func(c *cli.Context) {
@@ -49,7 +54,14 @@ func main() {
 			println("Writing config file")
 		}
 		if c.String("conf") == " " {
-			println(" ")
+			println("Skipping configuration file, please write it manually")
+		}
+		// Check 'vcs' flag
+		if c.String("vcs") == "true" {
+			println("Checking your new MogoCMS installation into git")
+		}
+		if c.String("vcs") == " " {
+			println("Skipping VCS")
 		}
 	}
 
