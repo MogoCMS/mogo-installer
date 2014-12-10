@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/codegangsta/cli"
 	"github.com/mogocms/mogo-installer/clone"
 	"os"
@@ -11,6 +10,11 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "Mogo Installer"
 	app.Usage = "Install and Setup MogoCMS and its Dependencies"
+
+	// Git Stuff
+	headRepo := ("github.com/mogocms/mogo/tree/master")
+	stableRepo := ("github.com/mogocms/mogo/tree/stable")
+	cl := clone.Clone
 
 	// Setup Flags and Arguments
 	app.Flags = []cli.Flag{
@@ -36,7 +40,7 @@ func main() {
 		},
 	}
 
-	app.action = func(c *cli.Context) {
+	app.Action = func(c *cli.Context) {
 		// Check 'deps' flag
 		if c.String("deps") == "true" {
 			println("Installing dependencies")
@@ -47,10 +51,11 @@ func main() {
 		// Check 'HEAD' flag
 		if c.String("HEAD") == "true" {
 			println("Installing MogoCMS from HEAD")
-			cloneRepo("github.com/mogocms/mogo")
+			cl(headRepo)
 		}
 		if c.String("HEAD") == " " {
 			println("Installing MogoCMS latest stable")
+			cl(stableRepo)
 		}
 		// Check 'conf' flag
 		if c.String("conf") == "true" {
