@@ -87,6 +87,9 @@ func main() {
 		// Check 'vcs' flag
 		if c.String("vcs") == "true" {
 			println("Checking your new MogoCMS installation into git")
+			runcmd("git init")
+			runcmd("git add .")
+			runcmd("git commit -am 'Initial installation of MogoCMS'")
 		}
 		if c.String("vcs") == " " {
 			println("Skipping VCS")
