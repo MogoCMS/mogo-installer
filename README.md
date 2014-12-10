@@ -13,5 +13,5 @@ This will do the following;
 
 ## Usage
 
-1. Download the latest installer (link to come)
+1. Download the latest installer [From Here](https://github.com/MogoCMS/mogo-installer/releases)
 2. run it from the terminal with the appropriate flags read above
