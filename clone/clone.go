@@ -5,6 +5,5 @@ import (
 )
 
 func Clone(repo string) {
-	sh.Command("git", "clone %v", repo)
-	return
+	sh.Command("git", "clone %v", repo).Run()
 }
