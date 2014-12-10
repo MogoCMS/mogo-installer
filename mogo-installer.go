@@ -22,6 +22,11 @@ func main() {
 			Usage: "Install Dependencies",
 		},
 		cli.StringFlag{
+			Name:  "os",
+			Value: " ",
+			Usage: "Specify what system you are installing mogo on",
+		},
+		cli.StringFlag{
 			Name:  "HEAD",
 			Value: " ",
 			Usage: "Install from HEAD (Master Branch) (Unstable)",
