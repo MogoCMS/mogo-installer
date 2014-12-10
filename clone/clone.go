@@ -1,15 +1,10 @@
 package clone
 
 import (
-	"fmt"
-	"log"
-	"os/exec"
+	"github.com/codeskyblue/go-sh"
 )
 
-func clone(repo String) {
-	cmd := exec.Command("git", "clone", repo)
-	printCommand(cmd)
-	output, err := cmd.CombinedOutput()
-	printError(err)
-	printOutput(output)
+func cloneRepo(repo string) {
+	sh.Command("git", "clone %v", repo)
+	return
 }
