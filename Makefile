@@ -6,9 +6,10 @@ GIT = $(shell which git)
 
 configure: 
 	$(GOBIN) get
-	
+
+build:
+	$(GOBIN) build -o dist/mogoint
 
 install:
-	$(GOBIN) build -o dist/mogoint
+	$(shell make build)
 	$(shell mv dist/mogoint /usr/local/bin/mogoint)
-
