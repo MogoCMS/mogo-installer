@@ -15,3 +15,11 @@ This will do the following;
 
 1. Download the latest installer [From Here](https://github.com/MogoCMS/mogo-installer/releases)
 2. run it from the terminal with the appropriate flags read above
+
+## Building From Source
+
+1.     $ git clone https://github.com/MogoCMS/mogo-installer && cd mogo-Installer
+2.     $ make configure
+3.     $ make install
+4.     $ mogoint --help #done
+
