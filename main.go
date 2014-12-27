@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/codegangsta/cli"
-	"./clone"
-	"./cmd"
+	"./lib/clone"
+	"./lib/cmd"
 	"os"
 )
 
