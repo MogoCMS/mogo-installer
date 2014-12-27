@@ -1,7 +1,7 @@
 GOBIN = $(shell which go)
 GIT = $(shell which git)
 
-.PHONY: configure, install
+.PHONY: configure, install, build
 
 
 configure: 
