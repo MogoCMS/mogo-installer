@@ -5,7 +5,7 @@ GIT = $(shell which git)
 
 
 configure: 
-	$(GOBIN) get
+	$(GOBIN) get github.com/codegangsta/cli
 
 build:
 	$(GOBIN) build -o dist/mogoint
