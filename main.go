@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/codegangsta/cli"
-	"./lib/clone"
-	"./lib/cmd"
+	"github.com/MogoCMS/mogo-installer/lib/clone"
+	"github.com/MogoCMS/mogo-installer/lib/cmd"
 	"os"
 )
 
