@@ -7,7 +7,6 @@ import (
 	"os"
 	"fmt"
 	"github.com/docopt/docopt-go"
-	"runtime"
 )
 
 // func main() {
@@ -125,14 +124,14 @@ Options:
 			runcmd("sudo apt-get install php5 php-pear")
 			println("Installed all depenencies for mogoCMS")
  		}
- 		if Dep = "osx" {
+ 		else if Dep = "osx" {
  			println("Installing on OSX (using brew)")
 			runcmd("brew install mongodb")
 			runcmd("brew tap Homebrew/homebrew-php")
 			runcmd("brew install php55")
 			println("installed all dependencies for MogoCMS")
  		}
- 		if Dep = "rhel" {
+ 		else if Dep = "rhel" {
 			println("Installing on RHEL/CentOS (using yum)")
 			runcmd("echo \"[mongodb]\" >> /etc/yum.repos.d/mongodb.repo")
 			runcmd("echo \"name=MongoDB Repository\" >> /etc/yum.repos.d/mongodb.repo")
@@ -141,6 +140,8 @@ Options:
 			runcmd("echo \"enabled=1\" >> /etc/yum.repos.d/mongodb.repo")
 			runcmd("sudo yum install -y mongodb-org")
 			runcmd("yum install php55w php55w-opcache")
+ 		} else {
+ 			fmt.Println("Please provide an OS to install for either deb, osx, or rhel")
  		}
     }
 }
