@@ -101,19 +101,26 @@ import (
 // 	app.Run(os.Args)
 // }
 
+// Git Clone
+cl := clone.Clone
+runcmd := cmd.Cmd
+
 func main() {
 	usage := `Usage:
-mogo-installer [--deps=<os>]
+mogo-installer [--deps=<os>] [--HEAD]
 
 Options:
   -h, --help              Show this screen.
   -v, --version           Show version.
   -d, --dependencies      Install dependencies for your operating system
+  -h, --HEAD              optionally get the HEAD version
   `
 	args, _ := docopt.Parse(usage, nil, true, "Mogo Installer", false)
     
     Dep, DepSet := args['--dependencies'].(string)
+    HEADSet := args['--HEAD']
 
+    // Check Dependency flag
     if DepSet {
  		if Dep = "deb" {
  			println("Installing on debian (using apt-get)")
@@ -143,5 +150,14 @@ Options:
  		} else {
  			fmt.Println("Please provide an OS to install for either deb, osx, or rhel")
  		}
+    }
+
+    // Clone the MogoCMS From master/stable
+    if HEADSet {
+    	fmt.Println('Cloning from master branch (WARNING: May be unstable)')
+    	cl("master", "https://github.com/mogocms/mogo.git")
+    } else {
+    	fmt.Println('Cloning from stable branch')
+    	cl("stable", "https://github.com/mogocms/mogo.git")
     }
 }
