@@ -12,7 +12,7 @@ runcmd := cmd.Cmd
 
 func main() {
 	usage := `Usage:
-mogo-installer [--deps=<os>] [--HEAD] [--dir]
+mogoint [--deps=<os>] [--HEAD] [--dir]
 
 Options:
   -h, --help              Show this screen.
