@@ -8,8 +8,6 @@ import (
 	"github.com/docopt/docopt-go"
 )
 
-// Git Clone
-cl := clone.Clone
 runcmd := cmd.Cmd
 
 func main() {
