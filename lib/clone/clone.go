@@ -2,6 +2,7 @@ package clone
 
 import (
 	"os/exec"
+	"github.com/libgit2/git2go"
 )
 
 func Clone(Branch string, Repo string) {
