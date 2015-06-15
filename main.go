@@ -21,20 +21,11 @@ Options:
   -v, --version           Show version.
   -d, --dependencies      Install dependencies for your operating system
   -h, --HEAD              Optionally get the HEAD version
-  -D, --dir               where to clone (default is ./mogo)
   `
 	args, _ := docopt.Parse(usage, nil, true, "Mogo Installer", false)
     
     Dep, DepSet := args['--dependencies'].(string)
-    Dir, DirSet := args['--dir'].(string)
     headFlag := args['--HEAD']
-
-	// check directory flag
-    if DirSet {
-    	FinalDir := Dir
-    } else {
-    	FinalDir := "./mogo"
-    }
 
     // Check Dependency flag
     if DepSet {
@@ -71,12 +62,10 @@ Options:
     // Clone the MogoCMS From master/stable
     if headFlag {
     	fmt.Println('Cloning from master branch (WARNING: May be unstable)')
-    	// cl("master", "https://github.com/mogocms/mogo.git")
-    	git.Clone("https://github.com/mogocms/mogo.git", FinalDir, nil, &CloneOptions{CheckoutBranch: "master"})
+    	git.Clone("https://github.com/mogocms/mogo.git", "./mogo", nil, &CloneOptions{CheckoutBranch: "master"})
     } else {
     	fmt.Println('Cloning from stable branch')
-    	// cl("stable", "https://github.com/mogocms/mogo.git")
-    	git.Clone("https://github.com/mogocms/mogo.git", FinalDir, nil, &CloneOptions{CheckoutBranch: "stable"})
+    	git.Clone("https://github.com/mogocms/mogo.git", "./mogo", nil, &CloneOptions{CheckoutBranch: "stable"})
     }
 
     // Create the config install file
