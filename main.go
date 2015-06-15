@@ -71,4 +71,6 @@ Options:
 
     // Create the config install file
     runcmd("cp ./mogo/install.sample.php ./mogo/install.php")
+
+    Println("Mogo has been installed.")
 }
