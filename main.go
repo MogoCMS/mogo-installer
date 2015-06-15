@@ -12,13 +12,13 @@ runcmd := cmd.Cmd
 
 func main() {
 	usage := `Usage:
-mogoint [--deps=<os>] [--HEAD] [--dir]
+mogoint [--deps=<os>] [--HEAD]
 
 Options:
   -h, --help              Show this screen.
   -v, --version           Show version.
   -d, --dependencies      Install dependencies for your operating system
-  -h, --HEAD              Optionally get the HEAD version
+  -H, --HEAD              Optionally get the HEAD version
   `
 	args, _ := docopt.Parse(usage, nil, true, "Mogo Installer", false)
     
